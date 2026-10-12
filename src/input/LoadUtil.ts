@@ -1,10 +1,11 @@
 import { Store } from "n3";
+import * as path from 'path';
 import { Policy, RawTestCase, StateOfTheWorld, TestCase } from "../Interfaces";
 import { extractGraph } from "../RDFUtil";
 import { getExpectedReport } from "../test_cases/ComplianceReportUtil";
 import { parseTestCase } from "../test_cases/TestCaseUtil";
 import { parsePolicies, parseRequests, parseStateOfTheWorld, parseTestCases } from "./ParseInput";
-import * as path from 'path';
+
 
 export async function loadTestCases(policiesDirectory: string, requestsDirectory: string, testCasesDirectory: string, stateOfTheWorldDirectory: string): Promise<Map<string, TestCase>> {
     // load all policies, requests and test cases

@@ -1,0 +1,42 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix ex: <http://example.org/> .
+
+<urn:uuid:c5219f77-8345-42eb-984c-2c375771bf1a> a ex:TestCase;
+    dct:title "Read request from ALICE for resource X for the purpose of Account Management (happy - multiple purposes).";
+    ex:policy <urn:uuid:b791d8a7-8e49-4428-be77-d4bb5aeffc20>;
+    ex:request <urn:uuid:ce9fc20e-7c79-474e-8afe-7605accccee8>;
+    ex:sotw <urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2>;
+    ex:expectedReport <urn:uuid:66ff4b1b-448f-45d0-86da-1ec0bf552de3>.
+
+
+<urn:uuid:588bca0b-27f8-4270-ac09-f4dbece8c73e> a report:ConstraintReport ;
+  report:constraint <urn:uuid:7bffb023-24a9-4228-b767-e55b8341ef98> ;
+  report:satisfactionState report:Satisfied ;
+  report:constraintLeftOperand <https://w3id.org/dpv#AccountManagement> ;
+  report:constraintOperator odrl:isAnyOf ;
+  report:constraintRightOperand <https://w3id.org/dpv#AccountManagement>, <https://w3id.org/dpv#DataQualityManagement> .
+
+<urn:uuid:66ff4b1b-448f-45d0-86da-1ec0bf552de3> a report:PolicyReport ;
+  dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+  report:policy <urn:uuid:b791d8a7-8e49-4428-be77-d4bb5aeffc20> ;
+  report:policyRequest <urn:uuid:ce9fc20e-7c79-474e-8afe-7605accccee8> ;
+  report:ruleReport <urn:uuid:fc6337e7-4dd7-4cbc-8e36-8a194025a0b2> .
+
+<urn:uuid:fc6337e7-4dd7-4cbc-8e36-8a194025a0b2> a report:PermissionReport ;
+  report:attemptState report:Attempted ;
+  report:rule <urn:uuid:79b34c79-b550-4ccf-9331-ef83c27f390f> ;
+  report:ruleRequest <urn:uuid:ce9fc20e-7c79-474e-8afe-7605accccee8> ;
+  report:premiseReport <urn:uuid:588bca0b-27f8-4270-ac09-f4dbece8c73e>, <urn:uuid:f798ad18-fc62-4fba-8e9f-6defea3f9bc5>, <urn:uuid:c973f006-390f-4f9b-a07f-83a7a27018ee>, <urn:uuid:a06382ae-d121-4535-b922-75e45fee418a> ;
+  report:activationState report:Active .
+
+<urn:uuid:f798ad18-fc62-4fba-8e9f-6defea3f9bc5> a report:TargetReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:c973f006-390f-4f9b-a07f-83a7a27018ee> a report:PartyReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:a06382ae-d121-4535-b922-75e45fee418a> a report:ActionReport ;
+  report:satisfactionState report:Satisfied .

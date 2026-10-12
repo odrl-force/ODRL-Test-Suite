@@ -20,5 +20,5 @@
 <urn:uuid:39b4bec9-14d5-4350-88dc-839150aa9fb1> a report:ProhibitionReport;
     report:attemptState report:Attempted;
     report:rule <urn:uuid:f3bdc260-5194-4a8a-a99e-91f9b3b710ee>;
-    report:ruleRequest <urn:uuid:186be541-5857-4ce3-9f03-1a274f16bf59>;
+    report:ruleRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364>;
     report:activationState report:Active.

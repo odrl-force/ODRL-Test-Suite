@@ -1,0 +1,20 @@
+@prefix ex: <http://example.org/> .
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
+<urn:uuid:0bfcef9d-c0a0-4834-945d-99058b763e5b> a odrl:Set ;
+    odrl:uid <urn:uuid:0bfcef9d-c0a0-4834-945d-99058b763e5b> ;
+    dct:description "ALICE may READ resource X if the deliveryChannel is podpro.dev/id." ;
+    dct:source <https://github.com/SolidLabResearch/ODRL-Test-Suite/>;
+    odrl:permission <urn:uuid:e51a43e4-616f-4f32-906b-2359955228e5> .
+
+<urn:uuid:e51a43e4-616f-4f32-906b-2359955228e5> a odrl:Permission ;
+    odrl:assignee ex:alice ;
+    odrl:action odrl:read ;
+    odrl:target ex:x ;
+    odrl:constraint <urn:uuid:963698fe-3b44-4b88-8527-501b6c5765a6> .
+
+<urn:uuid:963698fe-3b44-4b88-8527-501b6c5765a6> a odrl:Constraint ;
+    odrl:leftOperand odrl:deliveryChannel ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand <https://podpro.dev/id> .

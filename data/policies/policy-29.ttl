@@ -1,0 +1,13 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
+<urn:uuid:e2dac584-cdb6-4160-a1c1-6ef368d19f8d> a odrl:Set ;
+  dct:description "ALICE may READ resource X (compact policy)." ;
+  dct:source <https://github.com/SolidLabResearch/ODRL-Test-Suite/>;
+  odrl:action odrl:read ;
+  odrl:permission <urn:uuid:dccfa253-1a01-4ed6-926f-1f2f75d4df9d> .
+
+<urn:uuid:dccfa253-1a01-4ed6-926f-1f2f75d4df9d> a odrl:Permission ;
+  odrl:target ex:x ;
+  odrl:assignee ex:alice .

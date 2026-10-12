@@ -1,16 +1,15 @@
-@prefix odrl: <http://www.w3.org/ns/odrl/2/>.
-@prefix ex: <http://example.org/>.
-@prefix temp: <http://example.com/request/>.
-@prefix dct: <http://purl.org/dc/terms/>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix report: <https://w3id.org/force/compliance-report#>.
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
 
-<urn:uuid:4089cf37-8cb0-49e9-a5a4-022cc1b2b749> a odrl:Request;
-    odrl:uid <urn:uuid:4089cf37-8cb0-49e9-a5a4-022cc1b2b749> ;
-    dct:description "Requesting Party ALICE requests to SELL resource X.";
-    odrl:permission <urn:uuid:918e0608-59cd-4f69-8614-679f23f0bb7e>.
-<urn:uuid:918e0608-59cd-4f69-8614-679f23f0bb7e> a odrl:Permission;
-    odrl:assignee ex:alice;
-    odrl:action odrl:sell;
-    odrl:target ex:x.
+<urn:uuid:4089cf37-8cb0-49e9-a5a4-022cc1b2b749> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:sell ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
+  <http://purl.org/dc/terms/description> "Requesting Party ALICE requests to SELL resource X." ;
+  sotw:requestParameter [
+        a sotw:RequestParameter ;
+        sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+        sotw:describesFeature sotw:TemporalData ;
+    ] .

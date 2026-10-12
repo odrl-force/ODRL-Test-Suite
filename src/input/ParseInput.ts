@@ -3,7 +3,7 @@ import { Policy, RawTestCase, StateOfTheWorld } from "../Interfaces";
 import { fileAsStore } from "../RDFUtil";
 import { getPolicyIdentifier, getRequestIdentifier } from "../test_cases/ODRLUtil";
 import { getTestCaseIdentifier } from "../test_cases/TestCaseUtil";
-import { getStateOfTheWorld, getStateOfTheWorldIdentifier } from "../test_cases/SotwUtil";
+import {getStateOfTheWorldIdentifier, getStateOfTheWorld} from "../test_cases/SotwUtil";
 
 /**
  * Function that fetches all ODRL policies from a directory and puts them into a map.
@@ -38,6 +38,7 @@ export async function parsePolicies(policiesDir: string): Promise<Map<string, Po
     }
     return policies;
 }
+
 
 /**
  * Function that fetches all ODRL requests from a directory and puts them into a map.

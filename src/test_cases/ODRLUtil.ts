@@ -1,5 +1,5 @@
 import { Quad, Store } from "n3";
-import { RDF, ODRL } from "../Vocabularies";
+import { RDF, ODRL, SOTW } from "../Vocabularies";
 import { Policy } from "../Interfaces";
 import { extractGraph } from "../RDFUtil";
 
@@ -43,7 +43,7 @@ export function getPolicyIdentifier(quads: Quad[]): string {
  */
 export function getRequestIdentifier(quads: Quad[]): string {
     const store = new Store(quads);
-    const requestNodes = store.getQuads(null, RDF.terms.type, ODRL.terms.Request, null);
+    const requestNodes = store.getQuads(null, RDF.terms.type, SOTW.terms.EvaluationRequest, null);
 
     if (requestNodes.length !== 1) {
         throw Error(`Expected one ODRL request identifier. Found ${requestNodes.length}`);

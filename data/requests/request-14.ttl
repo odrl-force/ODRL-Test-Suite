@@ -1,0 +1,15 @@
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
+
+<urn:uuid:8a14c96a-8f45-45ef-a349-7aebf5eb4408> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
+  <http://purl.org/dc/terms/description> "Requesting Party ALICE requests to READ resource X." ;
+  sotw:requestParameter [
+        a sotw:RequestParameter ;
+        sotw:value "2024-02-12T00:00:00Z"^^xsd:dateTime ;
+        sotw:describesFeature sotw:TemporalData ;
+    ] .

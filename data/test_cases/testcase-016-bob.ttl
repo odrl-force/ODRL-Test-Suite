@@ -20,7 +20,7 @@
 <urn:uuid:a9bc031d-c846-442e-bb72-25951c7939c0> a report:PermissionReport;
     report:attemptState report:Attempted;
     report:rule <urn:uuid:cb04c08b-e956-4f74-b89a-f87b6f658a90>;
-    report:ruleRequest <urn:uuid:0c997117-eefc-474e-9049-c4e3b8defbc7>;
+    report:ruleRequest <urn:uuid:5be7b7d5-bc05-4168-8b31-81ebc32cfaa0>;
     report:premiseReport <urn:uuid:2e67d261-bac2-4bb6-adae-24aa006f255e>, <urn:uuid:d812ee1d-30e0-49a7-87d4-919e557656c4>;
     report:activationState report:Inactive.
 <urn:uuid:2e67d261-bac2-4bb6-adae-24aa006f255e> a report:PartyReport;

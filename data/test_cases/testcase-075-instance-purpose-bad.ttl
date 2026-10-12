@@ -1,0 +1,39 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix ex: <http://example.org/> .
+
+<urn:uuid:829c4db8-958f-4108-861f-e0d7e0b7c778> a ex:TestCase;
+    dct:title "Read request from ALICE for resource X for a purpose for the instance of dpv:AccountManagement (bad).";
+    ex:policy <urn:uuid:6a1153c1-aca7-496a-aba1-0b2561d4555e>;
+    ex:request <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364>;
+    ex:sotw <urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2>;
+    ex:expectedReport <urn:uuid:a169722a-2927-4e76-bf35-e550db765218>.
+
+
+<urn:uuid:efdac20e-6fc3-48d9-94c2-1fbb958832f4> a report:ConstraintReport ;
+  report:constraint <urn:uuid:2899cef7-fb9e-49b1-b4fb-cc28a8fae75f> ;
+  report:constraintLeftOperand "" ;
+  report:satisfactionState report:Unsatisfied .
+
+<urn:uuid:a169722a-2927-4e76-bf35-e550db765218> a report:PolicyReport ;
+  dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+  report:policy <urn:uuid:6a1153c1-aca7-496a-aba1-0b2561d4555e> ;
+  report:policyRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> ;
+  report:ruleReport <urn:uuid:fb4b8bc1-105c-4a1c-8548-a26d522cdf42> .
+
+<urn:uuid:fb4b8bc1-105c-4a1c-8548-a26d522cdf42> a report:PermissionReport ;
+  report:attemptState report:Attempted ;
+  report:rule <urn:uuid:f0ce2b23-d35c-483c-909a-17c986db5e68> ;
+  report:ruleRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> ;
+  report:premiseReport <urn:uuid:efdac20e-6fc3-48d9-94c2-1fbb958832f4>, <urn:uuid:ffb12ff4-748c-417b-af76-e8eb9a9d6893>, <urn:uuid:e136df31-12b9-40f3-b478-951d11661607>, <urn:uuid:93281e9f-714e-4f0d-ae9c-8c37c5e77354> ;
+  report:activationState report:Inactive .
+
+<urn:uuid:ffb12ff4-748c-417b-af76-e8eb9a9d6893> a report:TargetReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:e136df31-12b9-40f3-b478-951d11661607> a report:PartyReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:93281e9f-714e-4f0d-ae9c-8c37c5e77354> a report:ActionReport ;
+  report:satisfactionState report:Satisfied .

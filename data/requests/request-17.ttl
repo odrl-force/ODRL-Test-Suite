@@ -1,0 +1,22 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<urn:uuid:7433f876-38e9-4e46-9a8e-12b1d4dda622> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
+  dct:description "ALICE wants to READ resource X given the context of deliver channel podpro.dev/id." ;
+  sotw:requestParameter [
+        a sotw:RequestParameter ;
+        sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+        sotw:describesFeature sotw:TemporalData ;
+    ] ,
+    [
+        a sotw:RequestParameter ;
+        sotw:value <https://podpro.dev/id> ;
+        sotw:describesFeature sotw:DeliveryChannel ;
+    ] .

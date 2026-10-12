@@ -1,0 +1,41 @@
+@prefix ex: <http://example.org/>.
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix report: <https://w3id.org/force/compliance-report#> .
+
+<urn:uuid:95a3e7d6-595c-4a18-9a3e-c28f7face469> a ex:TestCase;
+    dct:title "Read request from ALICE for resource X over a delivery channel (happy).";
+    ex:policy <urn:uuid:0bfcef9d-c0a0-4834-945d-99058b763e5b>;
+    ex:request <urn:uuid:7433f876-38e9-4e46-9a8e-12b1d4dda622>;
+    ex:sotw <urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2>;
+    ex:expectedReport <urn:uuid:8eeb073c-8225-40e0-89b4-82be829673af>.
+
+<urn:uuid:30cd0522-6195-4223-b16f-3a9f722b1988> a report:ConstraintReport ;
+  report:constraint <urn:uuid:963698fe-3b44-4b88-8527-501b6c5765a6> ;
+  report:satisfactionState report:Satisfied ;
+  report:constraintLeftOperand <https://podpro.dev/id> ;
+  report:constraintOperator odrl:eq ;
+  report:constraintRightOperand <https://podpro.dev/id> .
+
+<urn:uuid:8eeb073c-8225-40e0-89b4-82be829673af> a report:PolicyReport ;
+  dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+  report:policy <urn:uuid:0bfcef9d-c0a0-4834-945d-99058b763e5b> ;
+  report:policyRequest <urn:uuid:7433f876-38e9-4e46-9a8e-12b1d4dda622> ;
+  report:ruleReport <urn:uuid:4dd6802a-56b9-4eef-a4aa-54294ddf1acf> .
+
+<urn:uuid:4dd6802a-56b9-4eef-a4aa-54294ddf1acf> a report:PermissionReport ;
+  report:attemptState report:Attempted ;
+  report:rule <urn:uuid:e51a43e4-616f-4f32-906b-2359955228e5> ;
+  report:ruleRequest <urn:uuid:7433f876-38e9-4e46-9a8e-12b1d4dda622> ;
+  report:premiseReport <urn:uuid:30cd0522-6195-4223-b16f-3a9f722b1988>, <urn:uuid:7475680f-e1a0-4a26-9675-a6fbddf827a9>, <urn:uuid:7e4914f8-13a8-447f-b8b1-17fc9f70f9a7>, <urn:uuid:46465d0a-23c6-4d8a-948f-e2e1e05c21fc> ;
+  report:activationState report:Active .
+
+<urn:uuid:7475680f-e1a0-4a26-9675-a6fbddf827a9> a report:TargetReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:7e4914f8-13a8-447f-b8b1-17fc9f70f9a7> a report:PartyReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:46465d0a-23c6-4d8a-948f-e2e1e05c21fc> a report:ActionReport ;
+  report:satisfactionState report:Satisfied .

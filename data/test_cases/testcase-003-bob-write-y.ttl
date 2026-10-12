@@ -20,6 +20,6 @@
 <urn:uuid:e1116cdc-bbc4-4f9a-8287-b6a6e878bf70> a report:PermissionReport;
     report:attemptState report:Attempted;
     report:rule <urn:uuid:72e248bf-5f4f-472f-af76-8beca297415c>;
-    report:ruleRequest <urn:uuid:68ae9b26-69d2-48cf-83e6-ef77c4a9cda9>;
+    report:ruleRequest <urn:uuid:73904e56-0fa9-43b8-8fd7-a45bb9d98c46>;
     report:activationState report:Active.
 

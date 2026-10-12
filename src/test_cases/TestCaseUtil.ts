@@ -5,6 +5,8 @@ import { blanknodeify, resourceToOptimisedTurtle, storeToString } from "../RDFUt
 import { DCT, RDF, TEST } from "../Vocabularies";
 import { getReportIdentifier } from "./ComplianceReportUtil";
 import { Evaluator } from "odrl-evaluator";
+import { write } from "@jeswr/pretty-turtle/dist"
+
 const namedNode = DataFactory.namedNode;
 
 
@@ -67,15 +69,17 @@ export function parseTestCase(quads: Quad[]): TestCaseProperties {
  * Useful for debugging and documentation.
  * @param testCase
  */
-export function testCaseDocumentation(testCase: TestCase): string {
+export async function testCaseDocumentation(testCase: TestCase): Promise<string> {
     const prefixes = {
-        'odrl': 'http://www.w3.org/ns/odrl/2/',
-        'ex': 'http://example.org/',
-        'temp': 'http://example.com/request/',
         'dct': 'http://purl.org/dc/terms/',
-        'xsd': 'http://www.w3.org/2001/XMLSchema#',
+        'dpv': "https://w3id.org/dpv#",
+        'ex': 'http://example.org/',
         'foaf': 'http://xmlns.com/foaf/0.1/',
-        'report': 'https://w3id.org/force/compliance-report#'
+        'odrl': 'http://www.w3.org/ns/odrl/2/',
+        'report': 'https://w3id.org/force/compliance-report#',
+        'schema': "https://schema.org/",
+        'sotw': "https://w3id.org/force/sotw#",
+        'xsd': 'http://www.w3.org/2001/XMLSchema#',
     }
     let output = ""
 
@@ -94,22 +98,22 @@ export function testCaseDocumentation(testCase: TestCase): string {
     // ODRL Policy
     output += "## ODRL Policy\n"
     output += "```ttl\n"
-    output += resourceToOptimisedTurtle(testCase.policy.quads, prefixes)
+    output += await write(testCase.policy.quads, {prefixes})
     output += "```\n"
     // ODRL Request
     output += "## ODRL Request\n"
     output += "```ttl\n"
-    output += resourceToOptimisedTurtle(testCase.request.quads, prefixes)
+    output += await write(testCase.request.quads, {prefixes})
     output += "```\n"
     // State of the World
     output += "## State of the world\n"
     output += "```ttl\n"
-    output += resourceToOptimisedTurtle(testCase.stateOfTheWorld.quads, prefixes)
+    output += await write(testCase.stateOfTheWorld.quads, {prefixes})
     output += "```\n"
     // Evaluation result: Compliance Report
     output += "## Evaluation result: Compliance Report\n"
     output += "```ttl\n"
-    output += resourceToOptimisedTurtle(testCase.expectedReport.quads, prefixes)
+    output += await write(testCase.expectedReport.quads, {prefixes})
     output += "```\n"
 
     return output

@@ -1,14 +1,14 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/>.
 @prefix ex: <http://example.org/>.
-@prefix temp: <http://example.com/request/>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix report: <https://w3id.org/force/compliance-report#>.
+@prefix sotw: <https://w3id.org/force/sotw#> .
 
-<urn:uuid:9187bb05-519d-497c-8f4d-83492678b3e4> a ex:Sotw;
-    ex:includes temp:currentTime, <urn:uuid:517d1bd4-fcae-46f9-a2a3-414da2cf4fe1>.
-temp:currentTime dct:issued "2024-02-12T11:20:10.999Z"^^xsd:dateTime.
+<urn:uuid:9187bb05-519d-497c-8f4d-83492678b3e4> a sotw:SotW;
+    sotw:context <urn:uuid:517d1bd4-fcae-46f9-a2a3-414da2cf4fe1> .
+
 <urn:uuid:517d1bd4-fcae-46f9-a2a3-414da2cf4fe1> a report:PolicyReport;
     dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime;
     report:policy <urn:uuid:5aa7f98c-65e0-4ff2-9846-40203203a58a>;

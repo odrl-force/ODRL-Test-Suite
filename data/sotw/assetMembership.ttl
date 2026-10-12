@@ -1,12 +1,12 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/>.
 @prefix ex: <http://example.org/>.
-@prefix temp: <http://example.com/request/>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix report: <https://w3id.org/force/compliance-report#>.
+@prefix sotw: <https://w3id.org/force/sotw#> .
 
-<urn:uuid:f048231b-b932-4248-a47d-8653a390247b> a ex:Sotw;
-    ex:includes temp:currentTime, ex:x.
-temp:currentTime dct:issued "2024-02-12T11:20:10.999Z"^^xsd:dateTime.
+<urn:uuid:f048231b-b932-4248-a47d-8653a390247b> a sotw:SotW;
+    sotw:context ex:x .
+
 ex:x odrl:partOf ex:assetCollection.

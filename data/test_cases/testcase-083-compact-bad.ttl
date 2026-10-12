@@ -1,0 +1,34 @@
+@prefix cr: <https://w3id.org/force/compliance-report#> .
+@prefix ex: <http://example.org/>.
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:uuid:6d6c729a-4be9-43a1-8a71-b7aa6a182064> a ex:TestCase;
+    dct:title "Read request from ALICE for resource X (compact policy - bad).";
+    ex:policy <urn:uuid:e2dac584-cdb6-4160-a1c1-6ef368d19f8d>;
+    ex:request <urn:uuid:4089cf37-8cb0-49e9-a5a4-022cc1b2b749>;
+    ex:sotw <urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2>;
+    ex:expectedReport <urn:uuid:7217ab6d-898d-4b03-baad-e0e278c17db8>.
+
+
+<urn:uuid:7217ab6d-898d-4b03-baad-e0e278c17db8> a cr:PolicyReport ;
+  dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+  cr:policy <urn:uuid:e2dac584-cdb6-4160-a1c1-6ef368d19f8d> ;
+  cr:policyRequest <urn:uuid:4089cf37-8cb0-49e9-a5a4-022cc1b2b749> ;
+  cr:ruleReport <urn:uuid:2ba69227-4aa9-4815-8b51-de7672a63a3a> .
+
+<urn:uuid:2ba69227-4aa9-4815-8b51-de7672a63a3a> a cr:PermissionReport ;
+  cr:attemptState cr:Attempted ;
+  cr:rule <urn:uuid:dccfa253-1a01-4ed6-926f-1f2f75d4df9d> ;
+  cr:ruleRequest <urn:uuid:4089cf37-8cb0-49e9-a5a4-022cc1b2b749> ;
+  cr:premiseReport <urn:uuid:967fd61a-ef5e-49f7-a508-10d99303655c>, <urn:uuid:b87c3ec8-025b-420c-8bbd-529ffa5263be>, <urn:uuid:4c76e782-ed05-4b4d-8ed0-d59f442c479b> ;
+  cr:activationState cr:Inactive .
+
+<urn:uuid:967fd61a-ef5e-49f7-a508-10d99303655c> a cr:TargetReport ;
+  cr:satisfactionState cr:Satisfied .
+
+<urn:uuid:b87c3ec8-025b-420c-8bbd-529ffa5263be> a cr:PartyReport ;
+  cr:satisfactionState cr:Satisfied .
+
+<urn:uuid:4c76e782-ed05-4b4d-8ed0-d59f442c479b> a cr:ActionReport ;
+  cr:satisfactionState cr:Unsatisfied .

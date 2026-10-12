@@ -1,0 +1,84 @@
+# Read request from ALICE for resource X over a delivery channel (bad).
+**Source**: https://github.com/SolidLabResearch/ODRL-Test-Suite/
+> ALICE may READ resource X if the deliveryChannel is podpro.dev/id.
+## ODRL Policy
+```ttl
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
+<urn:uuid:0bfcef9d-c0a0-4834-945d-99058b763e5b> a odrl:Set ;
+  odrl:uid <urn:uuid:0bfcef9d-c0a0-4834-945d-99058b763e5b> ;
+  dct:description "ALICE may READ resource X if the deliveryChannel is podpro.dev/id." ;
+  dct:source <https://github.com/SolidLabResearch/ODRL-Test-Suite/> ;
+  odrl:permission <urn:uuid:e51a43e4-616f-4f32-906b-2359955228e5> .
+
+<urn:uuid:e51a43e4-616f-4f32-906b-2359955228e5> a odrl:Permission ;
+  odrl:assignee ex:alice ;
+  odrl:action odrl:read ;
+  odrl:target ex:x ;
+  odrl:constraint <urn:uuid:963698fe-3b44-4b88-8527-501b6c5765a6> .
+
+<urn:uuid:963698fe-3b44-4b88-8527-501b6c5765a6> a odrl:Constraint ;
+  odrl:leftOperand odrl:deliveryChannel ;
+  odrl:operator odrl:eq ;
+  odrl:rightOperand <https://podpro.dev/id> .
+```
+## ODRL Request
+```ttl
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
+  dct:description "Requesting Party ALICE requests to READ resource X." ;
+  sotw:requestParameter [
+    a sotw:RequestParameter ;
+    sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+    sotw:describesFeature sotw:TemporalData
+  ] .
+```
+## State of the world
+```ttl
+@prefix sotw: <https://w3id.org/force/sotw#> .
+
+<urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2> a sotw:SotW .
+```
+## Evaluation result: Compliance Report
+```ttl
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:uuid:033c9873-2022-4ab0-8991-81191a106d2a> a report:PolicyReport ;
+  dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+  report:policy <urn:uuid:0bfcef9d-c0a0-4834-945d-99058b763e5b> ;
+  report:policyRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> ;
+  report:ruleReport <urn:uuid:d2dc7b00-f159-4c27-aada-6ad8a8f17689> .
+
+<urn:uuid:d2dc7b00-f159-4c27-aada-6ad8a8f17689> a report:PermissionReport ;
+  report:attemptState report:Attempted ;
+  report:rule <urn:uuid:e51a43e4-616f-4f32-906b-2359955228e5> ;
+  report:ruleRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> ;
+  report:premiseReport <urn:uuid:0da7a9cf-c953-49a7-b91a-8dba4529a881>, <urn:uuid:f437256d-58cf-471e-8b1d-82ad23d496eb>, <urn:uuid:6096588e-8099-4975-99c9-8f64fc79a68f>, <urn:uuid:cf727800-8f03-49ac-95ef-124ae12803d0> ;
+  report:activationState report:Inactive .
+
+<urn:uuid:0da7a9cf-c953-49a7-b91a-8dba4529a881> a report:ConstraintReport ;
+  report:constraint <urn:uuid:963698fe-3b44-4b88-8527-501b6c5765a6> ;
+  report:constraintLeftOperand "" ;
+  report:satisfactionState report:Unsatisfied .
+
+<urn:uuid:f437256d-58cf-471e-8b1d-82ad23d496eb> a report:TargetReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:6096588e-8099-4975-99c9-8f64fc79a68f> a report:PartyReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:cf727800-8f03-49ac-95ef-124ae12803d0> a report:ActionReport ;
+  report:satisfactionState report:Satisfied .
+```

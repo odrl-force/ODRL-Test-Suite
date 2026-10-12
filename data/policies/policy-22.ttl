@@ -1,0 +1,20 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:uuid:7e7a4e8a-e389-41ac-94fc-78e266cec31b> a odrl:Set ;
+  odrl:uid <urn:uuid:7e7a4e8a-e389-41ac-94fc-78e266cec31b> ;
+  dct:description "ALICE may READ resource X at 2024-02-12." ;
+  dct:source <https://github.com/SolidLabResearch/ODRL-Test-Suite/> ;
+  odrl:permission <urn:uuid:a6a16de7-7975-45f9-a15d-5e1f474de7b7> .
+
+<urn:uuid:a6a16de7-7975-45f9-a15d-5e1f474de7b7> a odrl:Permission ;
+  odrl:assignee ex:alice ;
+  odrl:action odrl:read ;
+  odrl:target ex:x ;
+  odrl:constraint <urn:uuid:5d83f959-9103-4413-ac98-a5167d1118c8> .
+
+<urn:uuid:5d83f959-9103-4413-ac98-a5167d1118c8> odrl:leftOperand odrl:dateTime ;
+  odrl:operator odrl:eq ;
+  odrl:rightOperand "2024-02-12"^^xsd:date .

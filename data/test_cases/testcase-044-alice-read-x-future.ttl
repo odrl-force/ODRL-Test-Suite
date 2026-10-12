@@ -9,8 +9,8 @@
 <urn:uuid:431d8e84-236b-4045-a3f2-cc36bf5a21c2> a ex:TestCase;
     dct:title "Read request from Alice to resource X returns into yes (temporal gt - future) (Alice Request Read X).";
     ex:policy <urn:uuid:9fcff55b-33bd-4c8f-bcd7-9e206e4dbbbe>;
-    ex:request <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364>;
-    ex:sotw <urn:uuid:14ddb075-8be9-4014-acbb-58dabd93d5ee>;
+    ex:request <urn:uuid:fb95f8d3-8c5a-453f-9c3f-6870bb434f5d>;
+    ex:sotw <urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2>;
     ex:expectedReport <urn:uuid:510ca28e-3973-4031-a10f-29a379d96b02>.
 <urn:uuid:415e90c7-c10d-4688-a37b-bd6ddd964572> a report:ConstraintReport;
     report:constraint <urn:uuid:constraint:86526f9b-57c2-4c94-b079-9762fec562f1>;
@@ -21,12 +21,12 @@
 <urn:uuid:510ca28e-3973-4031-a10f-29a379d96b02> a report:PolicyReport;
     dct:created "2025-02-12T11:20:10.999Z"^^xsd:dateTime;
     report:policy <urn:uuid:9fcff55b-33bd-4c8f-bcd7-9e206e4dbbbe>;
-    report:policyRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364>;
+    report:policyRequest <urn:uuid:fb95f8d3-8c5a-453f-9c3f-6870bb434f5d>;
     report:ruleReport <urn:uuid:912b8d3a-b13c-42a2-a08e-12b1d6373758>.
 <urn:uuid:912b8d3a-b13c-42a2-a08e-12b1d6373758> a report:PermissionReport;
     report:attemptState report:Attempted;
     report:rule <urn:uuid:641a79e0-0633-46c5-afe8-616e36701404>;
-    report:ruleRequest <urn:uuid:186be541-5857-4ce3-9f03-1a274f16bf59>;
+    report:ruleRequest <urn:uuid:fb95f8d3-8c5a-453f-9c3f-6870bb434f5d>;
     report:premiseReport <urn:uuid:d4f30bb4-844b-494f-a93e-d9e0641c560b>, <urn:uuid:91657f54-abac-4de7-a747-576d081d081b>, <urn:uuid:dcb3b3fe-e7f9-495a-b3b9-eb2a2779bf43>, <urn:uuid:415e90c7-c10d-4688-a37b-bd6ddd964572>;
     report:activationState report:Active.
 <urn:uuid:d4f30bb4-844b-494f-a93e-d9e0641c560b> a report:TargetReport;

@@ -1,0 +1,25 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<urn:uuid:480915ba-6784-4596-be02-34b35899d000> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
+  dct:description "Requesting Party ALICE requests to READ resource X for the purpose of dpv:AccountManagement." ;
+  sotw:requestParameter [
+        a sotw:RequestParameter ;
+        sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+        sotw:describesFeature sotw:TemporalData ;
+    ] ,
+    [
+        a sotw:RequestParameter ;
+        sotw:value ex:purpose ;
+        sotw:describesFeature sotw:Purpose ;
+    ] .
+    
+ex:purpose a dpv:AccountManagement .

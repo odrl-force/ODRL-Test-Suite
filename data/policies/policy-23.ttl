@@ -1,0 +1,21 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dpv: <https://w3id.org/dpv#>.
+
+<urn:uuid:18a5175e-33e4-4f66-895d-97bcbd4e427b> a odrl:Set ;
+    odrl:uid <urn:uuid:18a5175e-33e4-4f66-895d-97bcbd4e427b> ;
+    dct:description "ALICE may READ resource X for the purpose of dpv:AccountManagement." ;
+    dct:source <https://github.com/SolidLabResearch/ODRL-Test-Suite/>;
+    odrl:permission <urn:uuid:1c63f3af-7c09-4748-9002-1868f6816b16> .
+
+<urn:uuid:1c63f3af-7c09-4748-9002-1868f6816b16> a odrl:Permission ;
+    odrl:assignee ex:alice ;
+    odrl:action odrl:read ;
+    odrl:target ex:x ;
+    odrl:constraint <urn:uuid:ccce2874-20f2-4281-a56c-ec2614282bda> .
+
+<urn:uuid:ccce2874-20f2-4281-a56c-ec2614282bda> a odrl:Constraint;
+    odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand dpv:AccountManagement .

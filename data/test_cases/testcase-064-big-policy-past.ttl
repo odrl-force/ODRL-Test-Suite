@@ -9,8 +9,8 @@
 <urn:uuid:32ac9d9d-dddf-434a-a309-14bb9224ef2e> a ex:TestCase;
     dct:title "Read request from Alice to resource X on weekdays from 9-17 in 2024 returns into yes (Alice Request Read X - past).";
     ex:policy <urn:uuid:29b08c0a-97ea-41b1-b8e9-88400b1230cf>;
-    ex:request <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364>;
-    ex:sotw <urn:uuid:192620fa-06d9-447b-adbd-bd1ece4f9b12>;
+    ex:request <urn:uuid:0da1b571-254b-4fa5-8e46-2e881dca5c5c>;
+    ex:sotw <urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2>;
     ex:expectedReport <urn:uuid:969ae4d5-d2ba-489e-a0f7-155a4f940ba2>.
 <urn:uuid:83c244b8-3b17-46ee-91f3-c2fb103c5c02> a report:ConstraintReport;
     report:constraint <urn:uuid:ef1995be-0881-4d8b-b268-728b5478983f>;
@@ -3950,12 +3950,12 @@
 <urn:uuid:969ae4d5-d2ba-489e-a0f7-155a4f940ba2> a report:PolicyReport;
     dct:created "2017-02-12T11:20:10.999Z"^^xsd:dateTime;
     report:policy <urn:uuid:29b08c0a-97ea-41b1-b8e9-88400b1230cf>;
-    report:policyRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364>;
+    report:policyRequest <urn:uuid:0da1b571-254b-4fa5-8e46-2e881dca5c5c>;
     report:ruleReport <urn:uuid:72394ec5-0223-4913-b4e4-e70e257d31a3>.
 <urn:uuid:72394ec5-0223-4913-b4e4-e70e257d31a3> a report:PermissionReport;
     report:attemptState report:Attempted;
     report:rule <urn:uuid:f5d5f6d7-ef4b-43bc-9838-b79aef793883>;
-    report:ruleRequest <urn:uuid:186be541-5857-4ce3-9f03-1a274f16bf59>;
+    report:ruleRequest <urn:uuid:0da1b571-254b-4fa5-8e46-2e881dca5c5c>;
     report:premiseReport <urn:uuid:4a782280-f34f-4084-b2b3-470537cb95cf>, <urn:uuid:49ef2e1a-b58c-419a-b8de-c75ae05751d0>, <urn:uuid:fc6c3657-ceb9-460a-8a5b-b3ab22a26aac>, <urn:uuid:f6dae00f-a942-486c-9cbe-bcd744c15f0f>;
     report:activationState report:Inactive.
 <urn:uuid:4a782280-f34f-4084-b2b3-470537cb95cf> a report:TargetReport;

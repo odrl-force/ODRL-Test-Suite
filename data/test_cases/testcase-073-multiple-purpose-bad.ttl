@@ -1,0 +1,38 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix ex: <http://example.org/> .
+
+<urn:uuid:95a81c63-2ab4-4c36-8ff9-cba010df3ad8> a ex:TestCase;
+    dct:title "Read request from ALICE for resource X for the purpose of Account Management (bad - multiple purposes).";
+    ex:policy <urn:uuid:b791d8a7-8e49-4428-be77-d4bb5aeffc20>;
+    ex:request <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364>;
+    ex:sotw <urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2>;
+    ex:expectedReport <urn:uuid:ce17a05c-5788-47b7-88c9-9eee46e46966>.
+
+<urn:uuid:9ff0f434-b9d8-49ee-830f-f14bcdb42e84> a report:ConstraintReport ;
+  report:constraint <urn:uuid:7bffb023-24a9-4228-b767-e55b8341ef98> ;
+  report:constraintLeftOperand "" ;
+  report:satisfactionState report:Unsatisfied .
+
+<urn:uuid:ce17a05c-5788-47b7-88c9-9eee46e46966> a report:PolicyReport ;
+  dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+  report:policy <urn:uuid:b791d8a7-8e49-4428-be77-d4bb5aeffc20> ;
+  report:policyRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> ;
+  report:ruleReport <urn:uuid:325abb97-662e-4876-8fe3-c1aa5cc34e08> .
+
+<urn:uuid:325abb97-662e-4876-8fe3-c1aa5cc34e08> a report:PermissionReport ;
+  report:attemptState report:Attempted ;
+  report:rule <urn:uuid:79b34c79-b550-4ccf-9331-ef83c27f390f> ;
+  report:ruleRequest <urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> ;
+  report:premiseReport <urn:uuid:9ff0f434-b9d8-49ee-830f-f14bcdb42e84>, <urn:uuid:eef8edbd-bbf7-49af-9fdb-bd4c7fce82e3>, <urn:uuid:56b091db-336b-4a52-95a8-a9b9360afd18>, <urn:uuid:615c55d2-4970-4f16-940f-af858549eb3c> ;
+  report:activationState report:Inactive .
+
+<urn:uuid:eef8edbd-bbf7-49af-9fdb-bd4c7fce82e3> a report:TargetReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:56b091db-336b-4a52-95a8-a9b9360afd18> a report:PartyReport ;
+  report:satisfactionState report:Satisfied .
+
+<urn:uuid:615c55d2-4970-4f16-940f-af858549eb3c> a report:ActionReport ;
+  report:satisfactionState report:Satisfied .

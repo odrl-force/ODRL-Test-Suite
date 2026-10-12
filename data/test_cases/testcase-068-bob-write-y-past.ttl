@@ -9,8 +9,8 @@
 <urn:uuid:7844a3ce-40ec-4d6d-90f4-d0be27bba69c> a ex:TestCase;
     dct:title "Read request from people in party collection to resource X in 2024 returns into yes (Bob Request Write Y - past).";
     ex:policy <urn:uuid:cc4995de-9c5e-4e12-9039-698506f6ab1c>;
-    ex:request <urn:uuid:73904e56-0fa9-43b8-8fd7-a45bb9d98c46>;
-    ex:sotw <urn:uuid:69ba5872-de47-40d3-bf36-a33b7d44f5bc>;
+    ex:request <urn:uuid:f544eea6-98e7-473f-b1bf-1127f34af6c8>;
+    ex:sotw <urn:uuid:da98666e-e80d-429a-a839-1575f85a9b3c>;
     ex:expectedReport <urn:uuid:501d4167-8c83-458b-91d9-701a14361323>.
 <urn:uuid:fb5fa796-31f8-4d8a-ad19-b7798ef25944> a report:ConstraintReport;
     report:constraint <urn:uuid:6e8d7da2-0c51-4fab-a863-5e885a4b0f64>;
@@ -30,12 +30,12 @@
 <urn:uuid:501d4167-8c83-458b-91d9-701a14361323> a report:PolicyReport;
     dct:created "2023-02-12T11:20:10.999Z"^^xsd:dateTime;
     report:policy <urn:uuid:cc4995de-9c5e-4e12-9039-698506f6ab1c>;
-    report:policyRequest <urn:uuid:73904e56-0fa9-43b8-8fd7-a45bb9d98c46>;
+    report:policyRequest <urn:uuid:f544eea6-98e7-473f-b1bf-1127f34af6c8>;
     report:ruleReport <urn:uuid:2043e0e2-ed8a-447b-9474-c402a84753e7>.
 <urn:uuid:2043e0e2-ed8a-447b-9474-c402a84753e7> a report:PermissionReport;
     report:attemptState report:Attempted;
     report:rule <urn:uuid:38578227-70b7-4649-980d-661a57e91b72>;
-    report:ruleRequest <urn:uuid:68ae9b26-69d2-48cf-83e6-ef77c4a9cda9>;
+    report:ruleRequest <urn:uuid:f544eea6-98e7-473f-b1bf-1127f34af6c8>;
     report:premiseReport <urn:uuid:4d05f868-a4b0-479b-96a7-1f83a6f5c915>, <urn:uuid:a8eddcd4-66be-46b7-b538-5d3371939579>, <urn:uuid:b98f5863-d809-4779-9fd4-7d31bebc7ea7>, <urn:uuid:011b652c-7c23-43d4-9836-ce0783465eb9>;
     report:conditionReport <urn:uuid:ef7b885c-3322-4f79-90d6-aeb6c7e682ec>;
     report:activationState report:Inactive.
