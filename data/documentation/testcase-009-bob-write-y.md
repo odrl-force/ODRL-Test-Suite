@@ -3,8 +3,8 @@
 > Everybody can do use.
 ## ODRL Policy
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 <urn:uuid:a2ada399-48a3-4860-b44d-fa35516fdac2> a odrl:Set ;
   odrl:uid <urn:uuid:a2ada399-48a3-4860-b44d-fa35516fdac2> ;
@@ -17,32 +17,34 @@
 ```
 ## ODRL Request
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:uuid:73904e56-0fa9-43b8-8fd7-a45bb9d98c46> a <https://w3id.org/force/sotw#EvaluationRequest> ;
-  <https://w3id.org/force/sotw#requestedAction> odrl:write ;
-  <https://w3id.org/force/sotw#requestingParty> ex:bob ;
-  <https://w3id.org/force/sotw#requestedTarget> ex:y ;
+<urn:uuid:73904e56-0fa9-43b8-8fd7-a45bb9d98c46> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:write ;
+  sotw:evaluatedParty ex:bob ;
+  sotw:evaluatedTarget ex:y ;
   dct:description "Requesting Party BOB requests to WRITE resource Y." ;
-  <https://w3id.org/force/sotw#requestParameter> [
-    a <https://w3id.org/force/sotw#RequestParameter> ;
-    <https://w3id.org/force/sotw#value> "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
-    <https://w3id.org/force/sotw#describesFeature> <https://w3id.org/force/sotw#TemporalData>
+  sotw:requestParameter [
+    a sotw:RequestParameter ;
+    sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+    sotw:describesFeature sotw:TemporalData
   ] .
 ```
 ## State of the world
 ```ttl
+@prefix sotw: <https://w3id.org/force/sotw#> .
 
-<urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2> a <https://w3id.org/force/sotw#SotW> .
+<urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2> a sotw:SotW .
 ```
 ## Evaluation result: Compliance Report
 ```ttl
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <urn:uuid:e582b7bc-5acf-43a9-aec4-a48e3a1f3c6a> a report:PolicyReport ;
   dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;

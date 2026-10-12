@@ -3,9 +3,9 @@
 > A party collection can only read X, during 2024, given that eventually the duty is fulfilled.
 ## ODRL Policy
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <urn:uuid:cc4995de-9c5e-4e12-9039-698506f6ab1c> a odrl:Set ;
@@ -42,31 +42,33 @@ ex:partyCollection a odrl:PartyCollection ;
 ```
 ## ODRL Request
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:uuid:f544eea6-98e7-473f-b1bf-1127f34af6c8> a <https://w3id.org/force/sotw#EvaluationRequest> ;
-  <https://w3id.org/force/sotw#requestedAction> odrl:write ;
-  <https://w3id.org/force/sotw#requestingParty> ex:bob ;
-  <https://w3id.org/force/sotw#requestedTarget> ex:y ;
+<urn:uuid:f544eea6-98e7-473f-b1bf-1127f34af6c8> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:write ;
+  sotw:evaluatedParty ex:bob ;
+  sotw:evaluatedTarget ex:y ;
   dct:description "Requesting Party BOB requests to WRITE resource Y." ;
-  <https://w3id.org/force/sotw#requestParameter> [
-    a <https://w3id.org/force/sotw#RequestParameter> ;
-    <https://w3id.org/force/sotw#value> "2023-02-12T11:20:10.999Z"^^xsd:dateTime ;
-    <https://w3id.org/force/sotw#describesFeature> <https://w3id.org/force/sotw#TemporalData>
+  sotw:requestParameter [
+    a sotw:RequestParameter ;
+    sotw:value "2023-02-12T11:20:10.999Z"^^xsd:dateTime ;
+    sotw:describesFeature sotw:TemporalData
   ] .
 ```
 ## State of the world
 ```ttl
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/> .
 @prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:uuid:da98666e-e80d-429a-a839-1575f85a9b3c> a <https://w3id.org/force/sotw#SotW> ;
-  <https://w3id.org/force/sotw#context> ex:partyCollection, <urn:uuid:17ced35e-39ff-427d-a9c8-cfa4c5f44d1b> .
+<urn:uuid:da98666e-e80d-429a-a839-1575f85a9b3c> a sotw:SotW ;
+  sotw:context ex:partyCollection, <urn:uuid:17ced35e-39ff-427d-a9c8-cfa4c5f44d1b> .
 
 <urn:uuid:17ced35e-39ff-427d-a9c8-cfa4c5f44d1b> a report:PolicyReport ;
   dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
@@ -81,10 +83,10 @@ ex:partyCollection a odrl:PartyCollection ;
 ```
 ## Evaluation result: Compliance Report
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <urn:uuid:501d4167-8c83-458b-91d9-701a14361323> a report:PolicyReport ;
   dct:created "2023-02-12T11:20:10.999Z"^^xsd:dateTime ;

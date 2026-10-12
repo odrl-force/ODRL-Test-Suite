@@ -71,13 +71,15 @@ export function parseTestCase(quads: Quad[]): TestCaseProperties {
  */
 export async function testCaseDocumentation(testCase: TestCase): Promise<string> {
     const prefixes = {
-        'odrl': 'http://www.w3.org/ns/odrl/2/',
-        'ex': 'http://example.org/',
-        'temp': 'http://example.com/request/',
         'dct': 'http://purl.org/dc/terms/',
-        'xsd': 'http://www.w3.org/2001/XMLSchema#',
+        'dpv': "https://w3id.org/dpv#",
+        'ex': 'http://example.org/',
         'foaf': 'http://xmlns.com/foaf/0.1/',
-        'report': 'https://w3id.org/force/compliance-report#'
+        'odrl': 'http://www.w3.org/ns/odrl/2/',
+        'report': 'https://w3id.org/force/compliance-report#',
+        'schema': "https://schema.org/",
+        'sotw': "https://w3id.org/force/sotw#",
+        'xsd': 'http://www.w3.org/2001/XMLSchema#',
     }
     let output = ""
 

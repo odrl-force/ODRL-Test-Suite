@@ -3,9 +3,9 @@
 > Alice can only read everything.
 ## ODRL Policy
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 <urn:uuid:d30381e3-2c24-4197-a5b4-1e9767575141> a odrl:Set ;
   odrl:uid <urn:uuid:d30381e3-2c24-4197-a5b4-1e9767575141> ;
@@ -19,32 +19,34 @@
 ```
 ## ODRL Request
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:uuid:b384ec45-0f24-4be6-86ba-91a749c698ed> a <https://w3id.org/force/sotw#EvaluationRequest> ;
-  <https://w3id.org/force/sotw#requestedAction> odrl:read ;
-  <https://w3id.org/force/sotw#requestingParty> ex:alice ;
-  <https://w3id.org/force/sotw#requestedTarget> ex:y ;
+<urn:uuid:b384ec45-0f24-4be6-86ba-91a749c698ed> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:y ;
   dct:description "Requesting Party Alice requests to READ resource Y." ;
-  <https://w3id.org/force/sotw#requestParameter> [
-    a <https://w3id.org/force/sotw#RequestParameter> ;
-    <https://w3id.org/force/sotw#value> "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
-    <https://w3id.org/force/sotw#describesFeature> <https://w3id.org/force/sotw#TemporalData>
+  sotw:requestParameter [
+    a sotw:RequestParameter ;
+    sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+    sotw:describesFeature sotw:TemporalData
   ] .
 ```
 ## State of the world
 ```ttl
+@prefix sotw: <https://w3id.org/force/sotw#> .
 
-<urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2> a <https://w3id.org/force/sotw#SotW> .
+<urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2> a sotw:SotW .
 ```
 ## Evaluation result: Compliance Report
 ```ttl
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <urn:uuid:7ce1df83-59cb-4b0b-b80f-c029f603e43d> a report:PolicyReport ;
   dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;

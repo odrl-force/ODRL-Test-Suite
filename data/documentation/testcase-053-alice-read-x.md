@@ -3,9 +3,9 @@
 > ALICE may READ any resource from the Asset Collection.
 ## ODRL Policy
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 <urn:uuid:e30bcd34-0d5c-43d1-b229-bf68afcae5ae> a odrl:Set ;
   odrl:uid <urn:uuid:e30bcd34-0d5c-43d1-b229-bf68afcae5ae> ;
@@ -23,34 +23,39 @@ ex:assetCollection a odrl:AssetCollection ;
 ```
 ## ODRL Request
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> a <https://w3id.org/force/sotw#EvaluationRequest> ;
-  <https://w3id.org/force/sotw#requestedAction> odrl:read ;
-  <https://w3id.org/force/sotw#requestingParty> ex:alice ;
-  <https://w3id.org/force/sotw#requestedTarget> ex:x ;
+<urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
   dct:description "Requesting Party ALICE requests to READ resource X." ;
-  <https://w3id.org/force/sotw#requestParameter> [
-    a <https://w3id.org/force/sotw#RequestParameter> ;
-    <https://w3id.org/force/sotw#value> "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
-    <https://w3id.org/force/sotw#describesFeature> <https://w3id.org/force/sotw#TemporalData>
+  sotw:requestParameter [
+    a sotw:RequestParameter ;
+    sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+    sotw:describesFeature sotw:TemporalData
   ] .
 ```
 ## State of the world
 ```ttl
 @prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
 
-<urn:uuid:f048231b-b932-4248-a47d-8653a390247b> a <https://w3id.org/force/sotw#SotW> ;
-  <https://w3id.org/force/sotw#context> ex:assetCollection .
+<urn:uuid:f048231b-b932-4248-a47d-8653a390247b> a sotw:SotW ;
+  sotw:context ex:x .
+
+ex:x odrl:partOf ex:assetCollection .
 ```
 ## Evaluation result: Compliance Report
 ```ttl
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <urn:uuid:32cc5602-588e-46df-9e9f-9b8da97891ef> a report:PolicyReport ;
   dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;

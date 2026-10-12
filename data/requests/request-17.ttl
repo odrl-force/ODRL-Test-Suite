@@ -6,9 +6,9 @@
 
 
 <urn:uuid:7433f876-38e9-4e46-9a8e-12b1d4dda622> a sotw:EvaluationRequest ;
-  sotw:requestedAction odrl:read ;
-  sotw:requestingParty ex:alice ;
-  sotw:requestedTarget ex:x ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
   dct:description "ALICE wants to READ resource X given the context of deliver channel podpro.dev/id." ;
   sotw:requestParameter [
         a sotw:RequestParameter ;

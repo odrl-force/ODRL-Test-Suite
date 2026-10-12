@@ -3,9 +3,10 @@
 > ALICE may READ resource X if the purpose is not dpv:AccountManagement or dpv:DataQualityManagement.
 ## ODRL Policy
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 <urn:uuid:5ee1a7dd-ccba-49a4-92e8-6cc375509efd> a odrl:Set ;
   odrl:uid <urn:uuid:5ee1a7dd-ccba-49a4-92e8-6cc375509efd> ;
@@ -22,37 +23,40 @@
 <urn:uuid:52d3b046-52b6-419f-95b4-93bb557cdf97> a odrl:Constraint ;
   odrl:leftOperand odrl:purpose ;
   odrl:operator odrl:isNoneOf ;
-  odrl:rightOperand <https://w3id.org/dpv#AccountManagement>, <https://w3id.org/dpv#DataQualityManagement> .
+  odrl:rightOperand dpv:AccountManagement, dpv:DataQualityManagement .
 ```
 ## ODRL Request
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ex: <http://example.org/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> a <https://w3id.org/force/sotw#EvaluationRequest> ;
-  <https://w3id.org/force/sotw#requestedAction> odrl:read ;
-  <https://w3id.org/force/sotw#requestingParty> ex:alice ;
-  <https://w3id.org/force/sotw#requestedTarget> ex:x ;
+<urn:uuid:1bafee59-006c-46a3-810c-5d176b4be364> a sotw:EvaluationRequest ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
   dct:description "Requesting Party ALICE requests to READ resource X." ;
-  <https://w3id.org/force/sotw#requestParameter> [
-    a <https://w3id.org/force/sotw#RequestParameter> ;
-    <https://w3id.org/force/sotw#value> "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
-    <https://w3id.org/force/sotw#describesFeature> <https://w3id.org/force/sotw#TemporalData>
+  sotw:requestParameter [
+    a sotw:RequestParameter ;
+    sotw:value "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
+    sotw:describesFeature sotw:TemporalData
   ] .
 ```
 ## State of the world
 ```ttl
+@prefix sotw: <https://w3id.org/force/sotw#> .
 
-<urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2> a <https://w3id.org/force/sotw#SotW> .
+<urn:uuid:d63ea76e-0aed-4e4e-9a8c-0b7083ebc6e2> a sotw:SotW .
 ```
 ## Evaluation result: Compliance Report
 ```ttl
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix report: <https://w3id.org/force/compliance-report#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <urn:uuid:da9d5323-16bb-4e8c-b152-b8fe30e47142> a report:PolicyReport ;
   dct:created "2024-02-12T11:20:10.999Z"^^xsd:dateTime ;
@@ -72,7 +76,7 @@
   report:satisfactionState report:Satisfied ;
   report:constraintLeftOperand "" ;
   report:constraintOperator odrl:isNoneOf ;
-  report:constraintRightOperand <https://w3id.org/dpv#AccountManagement>, <https://w3id.org/dpv#DataQualityManagement> .
+  report:constraintRightOperand dpv:AccountManagement, dpv:DataQualityManagement .
 
 <urn:uuid:c814b019-92ea-4ad5-b9cd-63a7586ac538> a report:TargetReport ;
   report:satisfactionState report:Satisfied .

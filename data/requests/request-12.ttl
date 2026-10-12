@@ -4,9 +4,9 @@
 @prefix sotw: <https://w3id.org/force/sotw#> .
 
 <urn:uuid:8c807a96-8332-426b-b1a3-8a881464e74e> a sotw:EvaluationRequest ;
-  sotw:requestedAction odrl:read ;
-  sotw:requestingParty ex:alice ;
-  sotw:requestedTarget ex:x ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
   <http://purl.org/dc/terms/description> "Requesting Party ALICE requests to READ resource X." ;
   sotw:requestParameter [
         a sotw:RequestParameter ;

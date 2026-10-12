@@ -7,9 +7,9 @@
 
 
 <urn:uuid:480915ba-6784-4596-be02-34b35899d000> a sotw:EvaluationRequest ;
-  sotw:requestedAction odrl:read ;
-  sotw:requestingParty ex:alice ;
-  sotw:requestedTarget ex:x ;
+  sotw:evaluatedAction odrl:read ;
+  sotw:evaluatedParty ex:alice ;
+  sotw:evaluatedTarget ex:x ;
   dct:description "Requesting Party ALICE requests to READ resource X for the purpose of dpv:AccountManagement." ;
   sotw:requestParameter [
         a sotw:RequestParameter ;
